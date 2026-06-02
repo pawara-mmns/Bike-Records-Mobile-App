@@ -1,0 +1,41 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Safety Orange (#FF6D00) Core Chassis -->
+    <path
+        android:fillColor="#FF6D00"
+        android:pathData="M54,26 L64,42 L54,58 L44,42 Z" />
+
+    <!-- Rear Frame & Forks -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M35,54 L54,28 L73,54 M35,54 L73,54 M54,28 L54,44 M54,48 Q54,18 42,18" />
+
+    <!-- Left Wheel (Cylindrical Outer Stroke + Hubs) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M35,66 C41.6,66 47,60.6 47,54 C47,47.4 41.6,42 35,42 C28.4,42 23,47.4 23,54 C23,60.6 28.4,66 35,66 Z" />
+    <path
+        android:fillColor="#1A1B22"
+        android:pathData="M35,61 C38.8,61 42,57.8 42,54 C42,50.2 38.8,47 35,47 C31.2,47 28,50.2 28,54 C28,57.8 31.2,61 35,61 Z" />
+    <path
+        android:fillColor="#FF6D00"
+        android:pathData="M35,56 C36.1,56 37,55.1 37,54 C37,52.9 36.1,52 35,52 C33.9,52 33,52.9 33,54 C33,55.1 33.9,56 35,56 Z" />
+
+    <!-- Right Wheel (Cylindrical Outer Stroke + Hubs) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M73,66 C79.6,66 85,60.6 85,54 C85,47.4 79.6,42 73,42 C66.4,42 61,47.4 61,54 C61,60.6 66.4,66 73,66 Z" />
+    <path
+        android:fillColor="#1A1B22"
+        android:pathData="M73,61 C76.8,61 80,57.8 80,54 C80,50.2 76.8,47 73,47 C69.2,47 66,50.2 66,54 C66,57.8 69.2,61 73,61 Z" />
+    <path
+        android:fillColor="#FF6D00"
+        android:pathData="M73,56 C74.1,56 75,55.1 75,54 C75,52.9 74.1,52 73,52 C71.9,52 71,52.9 71,54 C71,55.1 71.9,56 73,56 Z" />
+</vector>

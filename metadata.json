@@ -1,0 +1,6 @@
+{
+  "name": "Bike Records",
+  "description": "Keep track of your bike records including service mileage, insurance renewal, vehicle emission tests, and fuel expenses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
