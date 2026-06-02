@@ -284,6 +284,33 @@ class BikeViewModel(application: Application) : AndroidViewModel(application) {
         LocationService.simulateTravelDistance(getApplication(), repository, km)
     }
 
+    // -- Complete Alerts and Notification System states & methods --
+    private val _isAlertsEnabledState = MutableStateFlow(AlertNotificationManager.isAlertsEnabled(getApplication()))
+    val isAlertsEnabled: StateFlow<Boolean> = _isAlertsEnabledState.asStateFlow()
+
+    private val _alertThresholdDaysState = MutableStateFlow(AlertNotificationManager.getThresholdDays(getApplication()))
+    val alertThresholdDays: StateFlow<Int> = _alertThresholdDaysState.asStateFlow()
+
+    fun setAlertsEnabled(enabled: Boolean) {
+        AlertNotificationManager.setAlertsEnabled(getApplication(), enabled)
+        _isAlertsEnabledState.value = enabled
+    }
+
+    fun setAlertThresholdDays(days: Int) {
+        AlertNotificationManager.setThresholdDays(getApplication(), days)
+        _alertThresholdDaysState.value = days
+    }
+
+    fun triggerManualCheckNow() {
+        viewModelScope.launch {
+            AlertNotificationManager.runImmediateAlertCheck(getApplication())
+        }
+    }
+
+    fun triggerDemoNotification(type: String) {
+        AlertNotificationManager.triggerTestNotification(getApplication(), type)
+    }
+
     override fun onCleared() {
         super.onCleared()
     }

@@ -21,6 +21,7 @@ import com.example.ui.BikeViewModel
 import com.example.ui.DashboardScreen
 import com.example.ui.LogsScreen
 import com.example.ui.SpendingScreen
+import com.example.ui.AlertRemindersHubDialog
 import com.example.ui.theme.MyApplicationTheme
 import java.util.Locale
 
@@ -52,6 +53,7 @@ enum class ScreenTab {
 @Composable
 fun BikeRecordsApp(viewModel: BikeViewModel) {
     var selectedTab by remember { mutableStateOf(ScreenTab.DASHBOARD) }
+    var showRemindersHub by remember { mutableStateOf(false) }
     val bike by viewModel.bikeDetails.collectAsState()
     val activeBikeName = if (bike.brand.isEmpty() && bike.model == "My Bike") "Your Bike Profile" else "${bike.brand} ${bike.model}".trim()
     val activeOdometer = String.format(Locale.getDefault(), "%,.0f", bike.currentOdometer)
@@ -108,7 +110,7 @@ fun BikeRecordsApp(viewModel: BikeViewModel) {
 
                     // Elegant notifications/action bell
                     IconButton(
-                        onClick = { /* Could view notifications or settings */ },
+                        onClick = { showRemindersHub = true },
                         modifier = Modifier.size(40.dp)
                     ) {
                         Icon(
@@ -171,6 +173,14 @@ fun BikeRecordsApp(viewModel: BikeViewModel) {
                 }
             }
         }
+    }
+
+    if (showRemindersHub) {
+        AlertRemindersHubDialog(
+            viewModel = viewModel,
+            bike = bike,
+            onDismiss = { showRemindersHub = false }
+        )
     }
 }
 
